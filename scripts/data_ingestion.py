@@ -1,31 +1,41 @@
-
-"""Simple placeholder script for data ingestion."""
-import os
-from pathlib import Path
-from dotenv import load_dotenv
 import requests
+import os
+import json
+from dotenv import load_dotenv
+from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-load_dotenv(BASE_DIR / '.env')
+# Charger les variables d'environnement
+load_dotenv()
 
-RAW_DIR = BASE_DIR / 'data' / 'raw'
+API_KEY = os.getenv("RAPIDAPI_KEY")
+
+BASE_URL = "https://api-football-v1.p.rapidapi.com/v3/"
+RAW_DIR = Path("data/raw")
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 
-def fetch_sample_csv(url, dest_filename='sample_matches.csv'):
-    dest = RAW_DIR / dest_filename
-    try:
-        r = requests.get(url, timeout=10)
-        r.raise_for_status()
-        with open(dest, 'wb') as f:
-            f.write(r.content)
-        print(f"Saved sample data to {dest}")
-    except Exception as e:
-        print('Could not fetch sample CSV:', e)
+HEADERS = {
+    "X-RapidAPI-Key": API_KEY,
+    "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+}
 
-def main():
-    # placeholder: example public CSV (open data) - replace with real APIs
-    sample_url = 'https://people.sc.fsu.edu/~jburkardt/data/csv/airtravel.csv'
-    fetch_sample_csv(sample_url)
 
-if __name__ == '__main__':
-    main()
+def fetch_players(league_id=39, season=2020, page=1):
+    """Récupère les joueurs d'une ligue et saison"""
+    url = f"{BASE_URL}players"
+    params = {"league": league_id, "season": season, "page": page}
+    r = requests.get(url, headers=HEADERS, params=params)
+    if r.status_code == 200:
+        data = r.json()
+        file_path = RAW_DIR / f"players_league{league_id}_season{season}_page{page}.json"
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        print(f"✅ Données sauvegardées dans {file_path}")
+        return data
+    else:
+        print(f"❌ Erreur {r.status_code}: {r.text}")
+        return None
+
+
+if __name__ == "__main__":
+    print("Récupération des joueurs (Premier League 2020)...")
+    fetch_players(league_id=39, season=2020)
