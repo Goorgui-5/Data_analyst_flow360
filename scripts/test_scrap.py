@@ -119,45 +119,27 @@ def get_player_info(url, session, retry=3):
     
     for attempt in range(retry):
         try:
-            # Headers aléatoires à chaque tentative
             headers = get_random_headers()
-            
-            # Ajouter un délai aléatoire avant la requête (sauf première tentative)
             if attempt > 0:
                 print(f"   ⏳ Pause de {5 + attempt * 2}s avant nouvelle tentative...")
                 time.sleep(5 + attempt * 2)
-            
+
             response = session.get(url, headers=headers, timeout=25)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
-            
-            # Nom du joueur
-            name = None
+
+            # === Nom du joueur ===
             name_elem = soup.find("h1", class_="data-header__headline-wrapper")
-            if name_elem:
-                # Enlever le numéro de maillot
-                name_text = name_elem.get_text()
-                name = re.sub(r'#\d+\s*', '', name_text).strip()
-            
-            # Date de naissance
-            birth_date = None
+            name = re.sub(r'#\d+\s*', '', name_elem.get_text()).strip() if name_elem else None
+
+            # === Date de naissance ===
             birth_elem = soup.find("span", itemprop="birthDate")
-            if birth_elem:
-                birth_date = parse_date(birth_elem.get_text())
-            
-            # Alternative: chercher dans la page
-            if not birth_date:
-                birth_match = re.search(r'(\d{1,2})\s+(\w+\.?)\s+(\d{4})\s*\((\d+)\)', soup.get_text())
-                if birth_match:
-                    birth_date = parse_date(birth_match.group(0))
-            
-            # Nationalité
-            nationality = None
+            birth_date = parse_date(birth_elem.get_text()) if birth_elem else None
+
+            # === Nationalité ===
             nationality_elem = soup.find("span", itemprop="nationality")
-            if nationality_elem:
-                nationality = clean_text(nationality_elem.get_text())
-            
-            # Alternative pour la nationalité
+            nationality = clean_text(nationality_elem.get_text()) if nationality_elem else None
+
             if not nationality:
                 flag_imgs = soup.find_all("img", class_="flaggenrahmen")
                 for img in flag_imgs:
@@ -165,65 +147,82 @@ def get_player_info(url, session, retry=3):
                     if 'Sénégal' in alt_text or 'Senegal' in alt_text:
                         nationality = 'Sénégal'
                         break
-            
-            # Position
+
+            # === Position ===
             position = None
-            # Chercher dans data-header__label
-            labels = soup.find_all("li", class_="data-header__label")
-            for label in labels:
+            for label in soup.find_all("li", class_="data-header__label"):
                 text = label.get_text()
-                # Si ça contient "Arrière", "Milieu", "Attaquant", "Gardien"
                 if any(keyword in text for keyword in ["Arrière", "Milieu", "Attaquant", "Gardien", "Défenseur"]):
                     position = clean_text(text)
                     break
-            
-            # Club actuel
+
+            # === Club actuel ===
             club = None
+            competition = None
+            pays_compet = None
+
             club_elem = soup.find("span", class_="data-header__club")
             if club_elem:
                 club_link = club_elem.find("a")
                 if club_link:
                     club = clean_text(club_link.get_text())
-            
+
+                    # 👉 Aller sur la page du club pour extraire la compétition et le pays
+                    club_url = "https://www.transfermarkt.fr" + club_link["href"]
+                    headers = get_random_headers()
+                    random_delay(2, 4)
+                    club_resp = session.get(club_url, headers=headers, timeout=25)
+
+                    if club_resp.status_code == 200:
+                        club_soup = BeautifulSoup(club_resp.text, "html.parser")
+
+                        # === Trouver la compétition actuelle du club ===
+                        comp_elem = club_soup.find("span", class_="data-header__club")
+                        if not comp_elem:
+                            comp_elem = club_soup.find("span", class_="data-header__league")
+                        
+                        if comp_elem:
+                            comp_link = comp_elem.find("a")
+                            if comp_link:
+                                competition = clean_text(comp_link.get_text())
+
+                                # Trouver le drapeau du club → vrai pays du club
+                                flag = club_soup.find("img", class_="flaggenrahmen")
+                                if flag and flag.get("title"):
+                                    pays_compet = clean_text(flag.get("title"))
+                                else:
+                                    # Si le drapeau du club n’est pas trouvé, on va chercher dans la compétition
+                                    comp_url = "https://www.transfermarkt.fr" + comp_link["href"]
+                                    random_delay(2, 4)
+                                    comp_resp = session.get(comp_url, headers=get_random_headers(), timeout=25)
+                                    if comp_resp.status_code == 200:
+                                        comp_soup = BeautifulSoup(comp_resp.text, "html.parser")
+                                        flag = comp_soup.find("img", class_="flaggenrahmen")
+                                        if flag and flag.get("title"):
+                                            pays_compet = clean_text(flag.get("title"))
+
+
             return {
                 "name": name,
                 "birth_date": birth_date,
                 "nationality": nationality,
                 "position": position,
                 "current_club": club,
+                "current_competition": competition,
+                "current_pays_de_competition": pays_compet,
                 "url": url
             }
-        
-        except requests.exceptions.Timeout:
-            if attempt < retry - 1:
-                print(f"   ⏱️  Timeout (tentative {attempt + 1}/{retry})")
-                continue
-            else:
-                print(f"   ❌ Timeout après {retry} tentatives")
-                return None
-        
-        except requests.exceptions.RequestException as e:
-            if attempt < retry - 1:
-                print(f"   ⚠️  Erreur réseau (tentative {attempt + 1}/{retry})")
-                continue
-            else:
-                print(f"   ❌ Erreur réseau: {type(e).__name__}")
-                return None
-        
+
         except Exception as e:
-            print(f"   ❌ Erreur: {type(e).__name__}")
-            return None
-    
+            print(f"   ❌ Erreur: {type(e).__name__} - {e}")
+            continue
+
     return None
+
 
 def get_player_stats(url, session, retry=3):
     """Récupère les statistiques de la saison EN COURS (2024/25 ou 2025/26)"""
     
-    # # URL de la page des performances pour la saison 2024/25
-    # # Transfermarkt utilise l'année de début de saison (2024 pour 2024/25)
-    # stats_url = url.replace('/profil/', '/leistungsdatendetails/')
-    # stats_url = stats_url + '/saison/2024/verein/0/liga/0/wettbewerb//pos/0/trainer_id/0/plus/1'
-
     # URL de la page des performances pour la saison 2025/26
     # Transfermarkt utilise l’année de début de saison (2025 pour 2025/26)
     stats_url = url.replace('/profil/', '/leistungsdatendetails/')
@@ -365,22 +364,26 @@ def upsert_player(conn, info, stats):
             
             if player:
                 player_id = player[0]
-                
-                # Mettre à jour les infos du joueur
+            
                 cur.execute("""
                     UPDATE players 
                     SET birth_date = COALESCE(%s, birth_date),
                         nationality = COALESCE(%s, nationality),
                         position = COALESCE(%s, position),
-                        current_club = COALESCE(%s, current_club)
+                        current_club = COALESCE(%s, current_club),
+                        current_competition = COALESCE(%s, current_competition),
+                        current_pays_de_competition = COALESCE(%s, current_pays_de_competition)
                     WHERE player_id = %s
                 """, (
                     info["birth_date"],
                     info["nationality"],
                     info["position"],
                     info["current_club"],
+                    info["current_competition"],
+                    info["current_pays_de_competition"],
                     player_id
                 ))
+
                 
                 # Vérifier si une performance agrégée existe déjà
                 if stats:
@@ -419,8 +422,9 @@ def upsert_player(conn, info, stats):
             else:
                 # Insérer un nouveau joueur
                 cur.execute("""
-                    INSERT INTO players (name, birth_date, nationality, position, current_club)
-                    VALUES (%s, %s, %s, %s, %s)
+                    
+                    INSERT INTO players (name, birth_date, nationality, position, current_club, current_competition, current_pays_de_competition)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
                     RETURNING player_id
                 """, (
                     info["name"],

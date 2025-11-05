@@ -7,6 +7,9 @@ CREATE TABLE IF NOT EXISTS players (
     nationality TEXT,
     position TEXT,
     current_club TEXT
+    current_competition TEXT,
+    current_pays_de_competition TEXT;
+
 );
 
 -- Exemple table pour matchs
