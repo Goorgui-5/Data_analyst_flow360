@@ -1,0 +1,78 @@
+perf_id,player_id,match_id,minutes_played,goals,assists,position,current_club
+31,31,,9900,3,20,arrière droit,Rsc Anderlecht
+32,32,,12420,2,2,arrière droit,Ogc Nice
+33,33,,26730,15,11,milieu défensif,Villarreal
+34,34,,24300,5,8,milieu défensif,Hellas Verona
+35,35,,20250,16,12,milieu central,Tottenham
+36,36,,27270,21,9,milieu central,Rayo Vallecano
+37,37,,56430,247,125,attaquant,Al-Nassr
+38,38,,18540,41,20,attaquant,Fc Everton
+39,39,,30960,80,58,attaquant,Crystal Palace
+40,40,,18360,54,28,attaquant,Bayern
+41,41,,27540,109,30,attaquant,Samsunspor
+42,43,,24480,87,20,attaquant,Lazio Rome
+43,44,,90,0,0,attaquant,Us Goréenne
+44,45,,720,0,0,attaquant,Asc Jaraaf
+45,46,,4140,2,0,attaquant,Teungueth
+46,47,,10350,20,6,attaquant,Como
+47,48,,90,0,0,milieu offensif,Asc Jaraaf
+48,49,,90,0,0,milieu offensif,Us Goréenne
+49,50,,1080,0,0,milieu offensif,Asc Jaraaf
+50,51,,13050,4,0,défenseur central,Watford
+51,52,,13860,4,1,défenseur central,Paris Fc
+53,54,,26460,11,20,arrière gauche,Galatasaray
+54,55,,14400,2,7,arrière gauche,Rsc Anderlecht
+55,56,,180,0,0,milieu central,Génération Foot
+56,57,,360,0,0,milieu central,Génération Foot
+57,58,,270,0,0,milieu central,Diambars Fc
+58,59,,990,1,0,milieu central,Randers Fc
+59,61,,540,0,0,milieu défensif,Ca Bizertin
+60,62,,540,0,0,milieu défensif,Ca Bizertin
+61,63,,1800,0,0,milieu défensif,Raków
+62,64,,13410,4,4,milieu défensif,Rs Berkane
+63,65,,14940,3,5,milieu défensif,Ud Almería
+64,67,,360,0,0,arrière droit,Asc Jaraaf
+65,68,,180,0,0,arrière gauche,Al-Merrikh Sc
+66,69,,450,1,0,arrière gauche,Stade Lavallois
+67,71,,180,0,0,arrière gauche,Asc Jaraaf
+68,72,,810,0,0,défenseur central,Fc Sheriff
+52,53,,450,0,0,défenseur central,Celta Fortuna
+69,73,,360,0,0,gardien de but,Tp Mazembe
+1,1,,15840,64,9,attaquant,Fc Lorient
+2,2,,17370,26,18,attaquant,Le Havre Ac
+3,3,,19620,14,7,milieu défensif,Le Havre Ac
+4,4,,32850,122,35,attaquant,Fc Metz
+5,5,,7290,21,3,attaquant,Fc Metz
+6,6,,15840,8,3,défenseur central,Le Havre Ac
+7,7,,5670,3,0,défenseur central,Fc Metz
+8,8,,24840,36,27,attaquant,Monaco
+9,9,,17010,59,15,attaquant,Rc Lens
+10,10,,7830,4,16,milieu central,Monaco
+11,11,,13320,14,11,milieu central,Afc Sunderland
+12,12,,33750,11,10,défenseur central,Ol. Lyonnais
+13,13,,12060,2,5,défenseur central,Parma
+14,14,,31590,3,12,arrière gauche,Fc Metz
+15,15,,45450,2,9,milieu défensif,Watford
+16,16,,23130,0,1,gardien de but,Ogc Nice
+17,17,,7740,5,1,défenseur central,Cremonese
+18,18,,22770,41,7,attaquant,Suspension
+19,19,,12420,25,8,attaquant,Fc Lorient
+20,20,,3870,13,1,attaquant,As Panazol
+21,21,,270,2,0,attaquant,Comercial U20
+70,74,,90,0,0,gardien de but,Us Goréenne
+22,22,,2970,6,1,milieu défensif,Udinese
+23,23,,19620,43,29,attaquant,Fc Metz
+24,24,,41130,0,1,gardien de but,Al-Ahli
+25,25,,28980,1,1,gardien de but,Le Havre Ac
+26,26,,33660,1,1,gardien de but,Middlesbrough
+27,27,,58050,26,17,défenseur central,Al-Hilal
+28,28,,35640,10,9,défenseur central,Al-Duhail Sc
+29,29,,32130,29,12,défenseur central,Maccabi Haifa
+30,30,,9900,16,9,arrière gauche,West Ham Utd.
+71,75,,8370,22,7,attaquant,Stade Brestois
+72,76,,19980,64,19,attaquant,Widzew Lodz
+73,77,,10080,10,1,milieu offensif,Courseulles
+74,78,,38790,75,34,attaquant,Al-Riyadh
+75,79,,44280,102,35,attaquant,Genclerbirligi
+76,80,,32310,199,36,attaquant,Amed Sk
+77,81,,56790,28,20,milieu défensif,Amed Sk

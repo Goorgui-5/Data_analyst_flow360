@@ -1,0 +1,82 @@
+player_id,name,birth_date,nationality,position,current_club,current_competition,current_pays_de_competition
+3,Rassoul Ndiaye,2001-12-11,Sénégal,milieu défensif,Le Havre Ac,Ligue 1,France
+5,Ibou Sané,2005-03-28,Sénégal,attaquant,Fc Metz,Ligue 1,France
+6,Arouna Sangante,2002-04-12,Sénégal,défenseur central,Le Havre Ac,Ligue 1,France
+7,Sadibou Sané,2004-06-10,Sénégal,défenseur central,Fc Metz,Ligue 1,France
+8,Krépin Diatta,1999-02-25,Sénégal,attaquant,Monaco,Ligue 1,France
+9,Abdallah Sima,2001-06-17,Sénégal,attaquant,Rc Lens,Ligue 1,France
+22,Idrissa Gueye,2006-09-16,Sénégal,milieu défensif,Udinese,Serie A,Italie
+59,Ousseynou Fall Seck,2007-06-22,Sénégal,milieu central,Randers Fc,Superliga,Danemark
+55,Moussa N'Diaye,2002-06-18,Sénégal,arrière gauche,Rsc Anderlecht,Jupiler Pro League,Belgique
+4,Habib Diallo,1995-06-18,Sénégal,attaquant,Fc Metz,Ligue 1,France
+1,Sambou Soumano,2001-01-03,Sénégal,attaquant,Fc Lorient,Ligue 1,France
+11,Habib Diarra,2004-01-03,Sénégal,milieu central,Afc Sunderland,Premier League,Angleterre
+12,Moussa Niakhaté,1996-03-08,Sénégal,défenseur central,Ol. Lyonnais,Ligue 1,France
+13,Abdoulaye Ndiaye,2002-04-10,Sénégal,défenseur central,Parma,Serie A,Italie
+14,Fodé Ballo-Touré,1997-01-03,Sénégal,arrière gauche,Fc Metz,Ligue 1,France
+15,Nampalys Mendy,1992-06-23,Sénégal,milieu défensif,Watford,Championship,Angleterre
+16,Yehvann Diouf,1999-11-16,Sénégal,gardien de but,Ogc Nice,Ligue 1,France
+17,Mikayil Faye,2004-07-14,Sénégal,défenseur central,Cremonese,Serie A,Italie
+18,Ibrahima Niane,1999-03-11,Sénégal,attaquant,Suspension,Non défini,Non défini
+19,Bamba Dieng,2000-03-23,Sénégal,attaquant,Fc Lorient,Ligue 1,France
+20,Khadim Dieng,2003-01-01,Sénégal,attaquant,As Panazol,Championnat National 3 - Groupe B,France
+21,Amadou Bamba,2005-05-13,Sénégal,attaquant,Comercial U20,Non défini,Non défini
+23,Cheikh Sabaly,1999-03-04,Sénégal,attaquant,Fc Metz,Ligue 1,France
+24,Edouard Mendy,1992-03-01,Sénégal,gardien de but,Al-Ahli,Saudi Pro League,Arabie Saoudite
+25,Mory Diaw,1993-06-22,Sénégal,gardien de but,Le Havre Ac,Ligue 1,France
+27,Kalidou Koulibaly,1991-06-20,Sénégal,défenseur central,Al-Hilal,Saudi Pro League,Arabie Saoudite
+28,Abdou Diallo,1996-05-04,Sénégal,défenseur central,Al-Duhail Sc,Qatar Stars League,Qatar
+29,Abdoulaye Seck,1992-06-04,Sénégal,défenseur central,Maccabi Haifa,Ligat ha'Al,Israël
+30,El Hadji Malick Diouf,2004-12-28,Sénégal,arrière gauche,West Ham Utd.,Premier League,Angleterre
+31,Ilay Camara,2003-01-18,Sénégal,arrière droit,Rsc Anderlecht,Jupiler Pro League,Belgique
+32,Antoine Mendy,2004-05-27,Sénégal,arrière droit,Ogc Nice,Ligue 1,France
+33,Pape Gueye,1999-01-24,Sénégal,milieu défensif,Villarreal,LaLiga,Espagne
+34,Cheikh Niasse,2000-01-19,Sénégal,milieu défensif,Hellas Verona,Serie A,Italie
+35,Pape Matar Sarr,2002-09-14,Sénégal,milieu central,Tottenham,Premier League,Angleterre
+36,Pathé Ciss,1994-03-16,Sénégal,milieu central,Rayo Vallecano,LaLiga,Espagne
+37,Sadio Mané,1992-04-10,Sénégal,attaquant,Al-Nassr,Saudi Pro League,Arabie Saoudite
+38,Iliman Ndiaye,2000-03-06,Sénégal,attaquant,Fc Everton,Premier League,Angleterre
+39,Ismaïla Sarr,1998-02-25,Sénégal,attaquant,Crystal Palace,Premier League,Angleterre
+40,Nicolas Jackson,2001-06-20,Sénégal,attaquant,Bayern,Bundesliga,Allemagne
+41,Cherif Ndiaye,1996-01-23,Sénégal,attaquant,Samsunspor,Süper Lig,Turquie
+42,Christian Gomis,2003-10-29,Sénégal,attaquant,Essamaye Fc,Non défini,Non défini
+43,Boulaye Dia,1996-11-16,Sénégal,attaquant,Lazio Rome,Serie A,Italie
+45,Ababacar Sarr,2002-03-14,Sénégal,attaquant,Asc Jaraaf,Ligue 1,Sénégal
+46,Libasse Gueye,2003-07-05,Sénégal,attaquant,Teungueth,Ligue 1,Sénégal
+48,Ameth Niang,2006-12-10,Sénégal,milieu offensif,Asc Jaraaf,Ligue 1,Sénégal
+49,Vieux Cissé,2004-04-23,Sénégal,milieu offensif,Us Goréenne,Ligue 1,Sénégal
+50,Moctar Koïta,1996-02-01,Sénégal,milieu offensif,Asc Jaraaf,Ligue 1,Sénégal
+52,Moustapha Mbow,2000-03-08,Sénégal,défenseur central,Paris Fc,Ligue 1,France
+54,Ismail Jakobs,1999-08-17,Sénégal,arrière gauche,Galatasaray,Süper Lig,Turquie
+56,Moussa Cissé,2009-04-20,Sénégal,milieu central,Génération Foot,Ligue 1,Sénégal
+58,Insa Boye,2002-03-23,Sénégal,milieu central,Diambars Fc,Non défini,Non défini
+60,Mbaye Yaya Ly,2002-08-15,Sénégal,milieu défensif,Union Military,Libyan Premier League,Libye
+74,Samba Mballo,2003-01-18,Sénégal,gardien de but,Us Goréenne,Ligue 1,Sénégal
+61,Bonaventure Fonseca,2001-01-10,Sénégal,milieu défensif,Ca Bizertin,Ligue 1,Tunisie
+62,Issa Kane,2003-03-20,Sénégal,milieu défensif,Ca Bizertin,Ligue 1,Tunisie
+63,Ibrahima Seck,2004-05-19,Sénégal,milieu défensif,Raków,PKO BP Ekstraklasa,Pologne
+64,Mamadou Lamine Camara,2003-01-05,Sénégal,milieu défensif,Rs Berkane,Botola Pro Inwi,Maroc
+65,Dion Lopy,2002-02-02,Sénégal,milieu défensif,Ud Almería,LaLiga2,Espagne
+67,Abdou Aziz Ndiaye,2005-11-18,Sénégal,arrière droit,Asc Jaraaf,Ligue 1,Sénégal
+68,Daouda Ba,2005-05-13,Sénégal,arrière gauche,Al-Merrikh Sc,Non défini,Non défini
+69,Layousse Samb,2000-10-25,Sénégal,arrière gauche,Stade Lavallois,Ligue 2,France
+70,Malick Sembène,2001-11-03,Sénégal,défenseur central,Asc Jaraaf,Ligue 1,Sénégal
+71,Mbaye Ndiaye,2003-03-21,Sénégal,arrière gauche,Asc Jaraaf,Ligue 1,Sénégal
+73,Marc Diouf,1998-11-20,Sénégal,gardien de but,Tp Mazembe,Non défini,Non défini
+75,Pathé Mboup,2003-10-19,Sénégal,attaquant,Stade Brestois,Ligue 1,France
+76,Pape Meïssa Ba,1997-07-04,Sénégal,attaquant,Widzew Lodz,PKO BP Ekstraklasa,Pologne
+78,Mamadou Sylla,1994-03-20,Sénégal,attaquant,Al-Riyadh,Saudi Pro League,Arabie Saoudite
+2,Issa Soumaré,2000-10-10,Sénégal,attaquant,Le Havre Ac,Ligue 1,France
+10,Lamine Camara,2004-01-01,Sénégal,milieu central,Monaco,Ligue 1,France
+26,Seny Dieng,1994-11-23,Sénégal,gardien de but,Middlesbrough,Championship,Angleterre
+44,Oumar Ba,2003-08-24,Sénégal,attaquant,Us Goréenne,Ligue 1,Sénégal
+47,Assane Diao,2005-09-07,Sénégal,attaquant,Como,Serie A,Italie
+51,Formose Mendy,2001-01-02,Sénégal,défenseur central,Watford,Championship,Angleterre
+57,Pape Abasse Badji,2003-12-27,Sénégal,milieu central,Génération Foot,Ligue 1,Sénégal
+66,Amadou Bene Coly,2002-09-15,Sénégal,arrière droit,Ajel Rufisque,Ligue 1,Sénégal
+72,Baye Assane Ciss,2003-10-10,Sénégal,défenseur central,Fc Sheriff,Super Liga,Moldavie
+53,Seyni Mbaye Ndiaye,2005-01-05,Sénégal,défenseur central,Celta Fortuna,Primera Federación - Grupo I,Espagne
+77,Amath Diedhiou,1989-11-19,Sénégal,milieu offensif,Courseulles,Non défini,Non défini
+79,M'Baye Niang,1994-12-19,Sénégal,attaquant,Genclerbirligi,Süper Lig,Turquie
+80,Mbaye Diagne,1991-10-28,Sénégal,attaquant,Amed Sk,1.Lig,Turquie
+81,Cheikhou Kouyaté,1989-12-21,Sénégal,milieu défensif,Amed Sk,1.Lig,Turquie
