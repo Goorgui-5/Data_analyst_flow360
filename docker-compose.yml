@@ -1,16 +1,31 @@
 
-version: '3.8'
-services:
-  postgres:
-    image: postgres:15
-    restart: unless-stopped
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-    ports:
-      - "${POSTGRES_PORT}:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata:
+# # version: '3.8'
+# # services:
+# #   postgres:
+# #     image: postgres:15
+# #     restart: unless-stopped
+# #     environment:
+# #       - POSTGRES_USER=${POSTGRES_USER}
+# #       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+# #       - POSTGRES_DB=${POSTGRES_DB}
+# #     ports:
+# #       - "${POSTGRES_PORT}:5432"
+# #     volumes:
+# #       - pgdata:/var/lib/postgresql/data
+# # volumes:
+# #   pgdata:
+
+# version: "3.8"
+# services:
+#   streamlit:
+#     build:
+#       context: ./app
+#     volumes:
+#       - ./:/app_project  # monte tout le repo pour accès aux data/processed, data/clean
+#       - ./app:/app       # monte l'app folder into container /app
+#     ports:
+#       - "8501:8501"
+#     environment:
+#       - KPIS_CSV=data/players_clean.csv
+#       - MATCHES_CSV=/data/matches_clean.csv
+#     working_dir: /app
