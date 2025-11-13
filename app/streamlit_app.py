@@ -186,36 +186,36 @@ st.markdown(f"""
     /* ===== BADGES AMÉLIORÉS ===== */
     .badge {{
         padding: 7px 14px;
-        border-radius: 20px;
-        font-size: 0.78rem;
+        border-radius: 10px;
+        font-size: 0.80rem;
         font-weight: 700;
         display: inline-block;
         text-transform: capitalize;
-        border: 1px solid transparent;
+        # border: 1px solid transparent;
         letter-spacing: 0.02em;
     }}
     .badge-attaquant {{ 
-        background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); 
+        # background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%); 
         color: #991B1B; 
         border-color: #F87171; 
     }}
     .badge-defenseur {{ 
-        background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%); 
+        # background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%); 
         color: #065F46; 
         border-color: #34D399; 
     }}
     .badge-milieu {{ 
-        background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); 
+        # background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); 
         color: #92400E; 
         border-color: #FBBF24; 
     }}
     .badge-gardien {{ 
-        background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%); 
+        # background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%); 
         color: #9F1239; 
         border-color: #FB7185; 
     }}
     .badge-arriere {{ 
-        background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); 
+        # background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); 
         color: #1E40AF; 
         border-color: #60A5FA; 
     }}
@@ -250,7 +250,7 @@ st.markdown(f"""
         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }}
     .dataframe th {{
-        background: linear-gradient(180deg, {CARD_BG} 0%, {BG_WHITE} 100%) !important;
+        background: linear-gradient(180deg, {CARD_BG} 0%, #c8f3dc 100%) !important;
         color: {TEXT_DARK} !important;
         font-weight: 700 !important;
         text-transform: uppercase !important;
@@ -258,6 +258,7 @@ st.markdown(f"""
         letter-spacing: 0.08em !important;
         border-bottom: 2px solid {PRIMARY} !important;
         padding: 1rem 0.75rem !important;
+        text-align: left !important;
     }}
     .dataframe td {{
         color: {TEXT_DARK} !important;
@@ -515,6 +516,92 @@ st.markdown(f"""
         background: transparent !important;
         border: none !important;
     }}
+
+    /* ===== VISIBILITÉ MAXIMALE : SIDEBAR, RADIO, SELECTBOX, TITRES ===== */
+
+    /* Titres des sections sidebar */
+    .sidebar-section {{
+        background: white !important;
+        color: #004d26 !important; /* Vert foncé lisible */
+        text-align: center !important;
+        font-weight: 800 !important;
+        font-size: 1.05rem !important;
+        letter-spacing: -0.01em !important;
+        border: 2px solid #00853F !important;
+    }}
+
+    /* Titres sidebar secondaires (Navigation, Filtres, etc.) */
+    .sidebar-title {{
+        color: #004d26 !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+    }}
+
+    /* Options radio — très visibles */
+    [data-testid="stSidebar"] .stRadio div[role="radiogroup"] label {{
+        color: #004d26 !important;
+        font-weight: 800 !important;
+        font-size: 1rem !important;
+        # background: #F3FFF7 !important;
+        border-radius: 8px !important;
+        margin-bottom: 0.4rem !important;
+        border: 1px solid #C5EED0 !important;
+        padding: 0.6rem 1rem !important;
+    }}
+
+    /* Option sélectionnée — encore plus contrastée */
+    [data-testid="stSidebar"] .stRadio input[type="radio"]:checked + label {{
+        # background: linear-gradient(135deg, #00853F25, #00853F15) !important;
+        color: #00853F !important;
+        font-weight: 900 !important;
+        border-left: 4px solid #00853F !important;
+    }}
+
+    /* Selectbox label ultra visible */
+    .stSelectbox label {{
+        color: #004d26 !important;
+        font-weight: 800 !important;
+        font-size: 1rem !important;
+    }}
+
+    /* Texte des valeurs sélectionnées */
+    .stSelectbox [data-baseweb="select"] > div {{
+        color: #1F2937 !important;
+        font-weight: 700 !important;
+    }}
+
+    /* Boutons : texte bien lisible */
+    .stButton > button {{
+        font-size: 0.95rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+    }}
+
+    /* Labels des sliders */
+    .stSlider label {{
+        color: #004d26 !important;
+        font-weight: 800 !important;
+    }}
+
+    /* Valeurs des sliders */
+    .stSlider [data-baseweb="slider"] + div {{
+        color: #1F2937 !important;
+        font-weight: 800 !important;
+    }}
+
+    /* Titres des graphiques et sections */
+    .section-title, .chart-title {{
+        color: #004d26 !important;
+    }}
+
+    /* Titres sidebar au survol */
+    .sidebar-section:hover {{
+        background: #00853F10 !important;
+        border-color: #00853F !important;
+        transition: all 0.3s ease;
+    }}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -1024,7 +1111,7 @@ def show_players_table(df):
     
     display_df.columns = [
         "Nom", "Âge", "Position", "Club", 
-        "Buts", "Passes", "Matchs", "Efficacité"
+        "Goal", "Assists", "Matchs", "Efficacité"
     ]
     
     # Appliquer le formatage de position avec badges
@@ -1046,20 +1133,20 @@ def show_players_table(df):
             else:
                 color = "#EF4444"  # Rouge
                 label = "Faible"
-            return f'<span style="background: linear-gradient(135deg, {color}15, {color}25); color: {color}; padding: 8px 14px; border-radius: 16px; font-weight: 700; border: 1px solid {color}40; font-size: 0.85rem;">{val_float:.1f}%</span>'
+            return f'<span style=" color: {color}; padding: 8px 14px; border-radius: 16px; font-weight: 700; font-size: 0.85rem;">{val_float:.1f}%</span>'
         except:
             return f'<span style="background: #6B728015; color: #6B7280; padding: 8px 14px; border-radius: 16px; font-weight: 700;">N/A</span>'
     
     display_df["Efficacité"] = display_df["Efficacité"].apply(format_efficiency)
     
     # Formater les nombres
-    display_df["Buts"] = display_df["Buts"].apply(lambda x: f'<span style="font-weight: 600; color: {SECONDARY};">{int(x)}</span>')
-    display_df["Passes"] = display_df["Passes"].apply(lambda x: f'<span style="font-weight: 600; color: {ACCENT};">{int(x)}</span>')
+    display_df["Goal"] = display_df["Goal"].apply(lambda x: f'<span style="font-weight: 600; color: {SECONDARY};">{int(x)}</span>')
+    display_df["Assists"] = display_df["Assists"].apply(lambda x: f'<span style="font-weight: 600; color: {ACCENT};">{int(x)}</span>')
     display_df["Matchs"] = display_df["Matchs"].apply(lambda x: f'<span style="font-weight: 600;">{int(x)}</span>')
     
     # Afficher le tableau avec des informations
     st.markdown(f"""
-    <div style="background: {CARD_BG}; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid {PRIMARY};">
+    <div style="background: {CARD_BG}; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px soli {PRIMARY};">
         <span style="font-size: 1.1rem; font-weight: 700; color: {TEXT_DARK};">
              {len(display_df)} joueur(s) trouvé(s)
         </span>
